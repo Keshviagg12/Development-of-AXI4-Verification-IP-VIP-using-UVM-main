@@ -504,10 +504,6 @@ For issues, questions, or suggestions:
 
 <div align="center">
 
-**Made with ❤️ for Digital Verification**
-
-⭐ If you find this VIP useful, please give it a star! ⭐
-
 ---
 
 *Last Updated: April 28, 2026*
