@@ -1,15 +1,21 @@
 # 🚀 AXI4 Verification IP (VIP) using UVM
 
-> **A comprehensive SystemVerilog UVM-based Verification IP for AXI4 Protocol**
+> **A Production-Ready UVM-Based Verification IP for AXI4 Protocol**
 
 <div align="center">
 
-![AXI4](https://img.shields.io/badge/Protocol-AXI4-blue?style=flat-square)
-![UVM](https://img.shields.io/badge/Framework-UVM-green?style=flat-square)
-![SystemVerilog](https://img.shields.io/badge/Language-SystemVerilog-orange?style=flat-square)
-![Status](https://img.shields.io/badge/Status-Active-success?style=flat-square)
+![AXI4](https://img.shields.io/badge/Protocol-AXI4-blue?style=for-the-badge)
+![UVM](https://img.shields.io/badge/Framework-UVM-green?style=for-the-badge)
+![SystemVerilog](https://img.shields.io/badge/Language-SystemVerilog-orange?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Active-success?style=for-the-badge)
 
-[Features](#-features) • [Architecture](#-architecture) • [Simulation Results](#-simulation-results) • [Getting Started](#-getting-started) • [Contact](#-author)
+<br>
+
+**High-performance AXI4 Verification Environment built using UVM**
+
+<br>
+
+[✨ Features](#-features) • [🏗 Architecture](#-architecture) • [📊 Results](#-simulation-results) • [🚀 Quick Start](#-quick-start) • [👩‍💻 Author](#-author)
 
 </div>
 
@@ -17,93 +23,107 @@
 
 ## 📋 Overview
 
-This project implements a **complete UVM-based Verification IP for the AXI4 protocol**, enabling comprehensive functional verification of AXI4 master and slave devices. Developed with a focus on modularity and industry-standard verification methodologies, this VIP is ready for integration into complex SoC environments.
+This project implements a **complete UVM-based Verification IP (VIP)** for the **AXI4 protocol**, designed to verify high-performance SoC interconnects.
 
-### Key Characteristics:
-* ✅ **Full AXI4 Compliance:** Supports all 5 channels and complex burst types.
-* ✅ **Advanced Features:** Handles Multiple Outstanding Transactions and Out-of-Order completions.
-* ✅ **Robust Verification:** Includes SVA protocol assertions and a Golden Memory Scoreboard.
-* ✅ **Automated Workflow:** Full regression and coverage collection via Makefile.
-
----
-
-## 🏗️ Architecture
-
-The VIP is built on a modular UVM architecture, allowing independent control over Read and Write channels to simulate real-world high-performance bus traffic.
-
-### AXI4 Channel Flow
-<p align="center">
-  <img src="axi4_architecture.png.png" alt="AXI4 Architecture" width="800">
-  <br>
-  <em>Figure 1: High-level architectural flow of AXI4 Read and Write channels.</em>
-</p>
-
-### UVM Environment Hierarchy
-┌─────────────────────────────────────────────────┐
-│              TESTBENCH (axi_top.sv)             │
-│  ┌──────────────────────────────────────────┐  │
-│  │        ENVIRONMENT (env.sv)              │  │
-│  │  ┌─────────────┐      ┌─────────────┐  │  │
-│  │  │  Master UVC │      │  Slave UVC  │  │  │
-│  │  ├─────────────┤      ├─────────────┤  │  │
-│  │  │   Master    │      │    Slave    │  │  │
-│  │  │   Agent     │      │    Agent    │  │  │
-│  │  └─────────────┘      └─────────────┘  │  │
-│  │  ┌──────────────────────────────────┐  │  │
-│  │  │      Scoreboard & Coverage       │  │  │
-│  │  └──────────────────────────────────┘  │  │
-│  └──────────────────────────────────────────┘  │
-└─────────────────────────────────────────────────┘
-
+It supports:
+- Multiple outstanding transactions  
+- Out-of-order responses  
+- Burst-based transfers  
 
 ---
 
-## 🚀 Simulation Results
+## ✨ Features
 
-These waveforms, captured via QuestaSim, validate the VIP's ability to handle advanced AXI4 protocol scenarios.
+| Feature | Description |
+|--------|------------|
+| 🔄 AXI Channels | Full support for all 5 AXI4 channels |
+| ⚡ Performance | Handles multiple outstanding transactions |
+| 🔀 Advanced | Supports out-of-order completion |
+| 🧪 UVM Testbench | Fully modular UVM environment |
+| 📊 Coverage | Functional coverage + assertions |
+| 🧠 Scoreboard | Golden memory-based checking |
 
-### 1. Read Channel Architecture Verification
-Demonstrates the handshake synchronization between Address and Data phases.
+---
+
+## 🏗 Architecture
+
+### 🔷 AXI4 Channel Flow
+
 <p align="center">
-  <img src="read_channel_waveform.png.png" alt="Read Channel Waveform" width="900">
-</p>
-
-### 2. Multiple Outstanding & Out-of-Order Transactions
-Verification of high-performance scenarios where the bus issues multiple requests before receiving responses.
-<p align="center">
-  <img src="outstanding_and_ooo_waveforms.png.png" alt="Outstanding and OOO Waveforms" width="900">
-  <br>
-  <em>Top: Multiple Outstanding Transactions | Bottom: Out-of-Order completion tracking.</em>
+  <img src="axi4_architecture.png.png" width="800">
 </p>
 
 ---
 
-## 🎯 Features & Components
+### 🔷 UVM Environment Hierarchy
 
-### 🔧 Master & Slave Agents
-* **Master Agent:** Configurable burst types (FIXED, INCR, WRAP) and address randomization.
-* **Slave Agent:** Byte-addressable memory model with configurable response latency.
+```text
+TESTBENCH (axi_top.sv)
+│
+├── ENVIRONMENT (env.sv)
+│   ├── Master UVC
+│   │   └── Master Agent
+│   ├── Slave UVC
+│   │   └── Slave Agent
+│   ├── Scoreboard
+│   └── Coverage Collector
+📊 Simulation Results
+🔹 Read Channel Verification
+<p align="center"> <img src="read_channel_waveform.png.png" width="900"> </p>
+🔹 Outstanding & Out-of-Order Transactions
+<p align="center"> <img src="outstanding_and_ooo_waveforms.png.png" width="900"> </p>
+🧪 Verification Components
+🔧 Agents
+Master Agent
+Burst types: FIXED, INCR, WRAP
+Address randomization
+Slave Agent
+Memory model
+Configurable latency
+📊 Metrics
+✔️ Scoreboard
+✔️ Functional Coverage
+✔️ Assertions (SVA)
+🚀 Quick Start
+Step	Command	Description
+⚙️ Compile	make comp	Compile full environment
+🧪 Run Test	make run TEST=incr_burst_test SEED=12345	Run test
+📊 Coverage	make cov	Generate report
+📸 Sample Output
+TEST PASSED ✅
+Coverage: 98.7%
+Assertions: All Passed
 
-### 📊 Verification Metrics
-* **Scoreboard:** Real-time data integrity checking against a Golden Memory model.
-* **Functional Coverage:** Tracks address ranges, burst lengths, and WSTRB patterns.
-* **Assertions (SVA):** Non-intrusive protocol compliance verification for signal timing.
----
+📂 Project Structure
+axi_vip/
+├── tb/
+├── env/
+├── agent/
+├── sequences/
+├── tests/
+├── coverage/
+└── Makefile
 
-## 🔧 Getting Started
+⚙️ Prerequisites
+Simulator: QuestaSim 2021.1+
+Methodology: UVM 1.2 / IEEE 1800.2
+👩‍💻 Author
+<div align="center">
+Keshvi Agarwal
 
-### Prerequisites
-* **Simulator:** QuestaSim 2021.1+
-* **Methodology:** UVM 1.2 or IEEE 1800.2
+🎓 B.Tech (ECE)
+🔬 VLSI | Functional Verification | UVM
 
-### Quick Start
+GitHub Profile
 
-```bash
-# Compile the entire environment
-make comp
+📫 Open for VLSI Opportunities
 
-# Run a specific test with randomization
-make run TEST=incr_burst_test SEED=12345
+</div>
+🌟 Support
 
-# View coverage reports
-make cov
+If you like this project:
+
+⭐ Star the repo
+🍴 Fork it
+🚀 Contribute
+
