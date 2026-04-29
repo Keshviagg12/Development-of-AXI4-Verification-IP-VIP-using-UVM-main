@@ -107,3 +107,13 @@ make run TEST=incr_burst_test SEED=12345
 
 # View coverage reports
 make cov
+👤 Author
+Keshvi Agarwal
+
+🎓 Background: B.Tech in Electronics and Communication Engineering (ECE).
+
+🛠️ Specialization: VLSI Physical Design & Functional Verification (UVM/SystemVerilog).
+
+🔗 GitHub: @Keshviagg12
+
+📧 Contact: Available via GitHub Profile
