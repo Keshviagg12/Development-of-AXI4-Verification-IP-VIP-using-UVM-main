@@ -88,16 +88,16 @@ Verification of high-performance scenarios where the bus issues multiple request
 * **Scoreboard:** Real-time data integrity checking against a Golden Memory model.
 * **Functional Coverage:** Tracks address ranges, burst lengths, and WSTRB patterns.
 * **Assertions (SVA):** Non-intrusive protocol compliance verification for signal timing.
-
 ---
 
 ## 🔧 Getting Started
 
 ### Prerequisites
-* **Simulator:** QuestaSim 2021.1+.
-* **Methodology:** UVM 1.2 or IEEE 1800.2.
+* **Simulator:** QuestaSim 2021.1+
+* **Methodology:** UVM 1.2 or IEEE 1800.2
 
 ### Quick Start
+
 ```bash
 # Compile the entire environment
 make comp
@@ -107,27 +107,3 @@ make run TEST=incr_burst_test SEED=12345
 
 # View coverage reports
 make cov
-
----
-
-## 👤 Author
-
-**Keshvi Agarwal**
-* 🎓 **Background:** Bachelor of Technology in Electronics and Communication Engineering (ECE).
-* 🛠️ **Specialization:** VLSI Physical Design and Functional Verification using Verilog, SystemVerilog, and UVM.
-* 🔗 **GitHub:** [@Keshviagg12](https://github.com/Keshviagg12)
-* 📧 **Contact:** Available via [GitHub Profile](https://github.com/Keshviagg12)
-
----
-
-<div align="center">
-
-**Developed by Keshvi Agarwal**
-<br>
-*Last Updated: April 30, 2026*
-
----
-
-⭐ If you find this VIP useful for your verification needs, please give it a star! ⭐
-
-</div>
